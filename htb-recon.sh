@@ -45,7 +45,7 @@ then
   tmux send-keys -t $name:RECON.0 'nmap -sC -sV -oN recon/initial_nmap.txt -v -Pn $target' 
   tmux send-keys -t $name:RECON.1 'sudo masscan -p1-65535 -e tun0 -oL recon/allports.txt --rate=1000 -vv -Pn $target'
   tmux send-keys -t $name:RECON.2 'gobuster dir -u http://$target -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o recon/dirscan.txt'
-  tmux send-keys -t $name:RECON.2 '/opt/ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee recon/ffuf.txt' 
+  tmux send-keys -t $name:RECON.3 '../tools/ffuf/ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee recon/ffuf.txt' 
 
   tmux send-keys -t $name:NOTES 'vi notes.md'
 
